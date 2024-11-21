@@ -1,7 +1,261 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-<head></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sensive Blog - Home</title>
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+  <link rel="stylesheet"
+        href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+</head>
 <body>
-    <h1>Здесь будет главная</h1>
+<!--================Header Menu Area =================-->
+<header class="header_area">
+  <div class="main_menu">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container box_1620">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand logo_h" href="index.html"><img
+          src="{% static 'images/logo.png' %}" alt></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse offset"
+             id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav justify-content-center">
+            <li class="nav-item active"><a class="nav-link"
+                                           href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right navbar-social">
+            <li><a href="#"><i class="ti-facebook"></i></a></li>
+            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+            <li><a href="#"><i class="ti-instagram"></i></a></li>
+            <li><a href="#"><i class="ti-skype"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<!--================Header Menu Area =================-->
+
+<main class="site-main">
+  <!--================Hero Banner start =================-->
+  <section class="mb-30px">
+    <div class="container">
+      <div class="hero-banner"
+           style="background-image: url('{% static 'images/banner/hero-banner.png' %}');">
+        <div class="hero-banner__content">
+          <h3>Tours &amp; Travels</h3>
+          <h1>Amazing Places on earth</h1>
+          <h4>December 12, 2018</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================Hero Banner end =================-->
+
+  <!--================ Blog slider start =================-->
+  <section>
+    <div class="container">
+      <div class="d-flex">
+        <div class="flex-fill" style="margin-right: 30px;">
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0"
+                   src="{% static 'images/blog/blog-slider/blog-slide1.png' %}"
+                   alt>
+            </div>
+            <div class="blog__slide__content">
+              <h3><a href="#">New york fashion week's continued the
+                evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-fill" style="margin-right: 30px;">
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0"
+                   src="{% static 'images/blog/blog-slider/blog-slide2.png' %}"
+                   alt>
+            </div>
+            <div class="blog__slide__content">
+              <h3><a href="#">New york fashion week's continued the
+                evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-fill">
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0"
+                   src="{% static 'images/blog/blog-slider/blog-slide3.png' %}"
+                   alt>
+            </div>
+            <div class="blog__slide__content">
+              <h3><a href="#">New york fashion week's continued the
+                evolution</a></h3>
+              <p>2 days ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ Blog slider end =================-->
+
+  <!--================ Start Blog Post Area =================-->
+  <section class="blog-post-area section-margin mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="single-recent-blog-post">
+            <div class="thumb">
+              <img class="img-fluid"
+                   src="{% static 'images/blog/blog1.png' %}" alt>
+              <ul class="thumb-info">
+                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
+                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+              </ul>
+            </div>
+            <div class="details mt-20">
+              <h3>Woman claims husband wants to name baby girl after his
+                ex-lover sparking.</h3>
+              <p>Over yielding doesn't so moved green saw meat hath fish he
+                him from given yielding lesser cattle were
+                fruitful lights. Given let have, lesser their made him above
+                gathered dominion sixth. Creeping deep said
+                can't called second. Air created seed heaven sixth created
+                living</p>
+              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="single-recent-blog-post">
+            <div class="thumb">
+              <img class="img-fluid"
+                   src="{% static 'images/blog/blog2.png' %}" alt>
+              <ul class="thumb-info">
+                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
+                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+              </ul>
+            </div>
+            <div class="details mt-20">
+              <h3>Woman claims husband wants to name baby girl after his
+                ex-lover sparking.</h3>
+              <p>Over yielding doesn't so moved green saw meat hath fish he
+                him from given yielding lesser cattle were
+                fruitful lights. Given let have, lesser their made him above
+                gathered dominion sixth. Creeping deep said
+                can't called second. Air created seed heaven sixth created
+                living</p>
+              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="single-recent-blog-post">
+            <div class="thumb">
+              <img class="img-fluid"
+                   src="{% static 'images/blog/blog3.png' %}" alt>
+              <ul class="thumb-info">
+                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
+                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+              </ul>
+            </div>
+            <div class="details mt-20">
+              <h3>Tourist deaths in Costa Rica jeopardize safe destination
+                reputation all time.</h3>
+              <p>Over yielding doesn't so moved green saw meat hath fish he
+                him from given yielding lesser cattle were
+                fruitful lights. Given let have, lesser their made him above
+                gathered dominion sixth. Creeping deep said
+                can't called second. Air created seed heaven sixth created
+                living</p>
+              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="single-recent-blog-post">
+            <div class="thumb">
+              <img class="img-fluid"
+                   src="{% static 'images/blog/blog4.png' %}" alt>
+              <ul class="thumb-info">
+                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
+                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+              </ul>
+            </div>
+            <div class="details mt-20">
+              <h3>Animal welfare tourism destination in some of the world's
+                most endangered.</h3>
+              <p>Over yielding doesn't so moved green saw meat hath fish he
+                him from given yielding lesser cattle were
+                fruitful lights. Given let have, lesser their made him above
+                gathered dominion sixth. Creeping deep said
+                can't called second. Air created seed heaven sixth created
+                living</p>
+              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="sidebar-widget">
+            <h4 class="title">Search Blog</h4>
+            <form action="#">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="sidebar-widget">
+            <h4 class="title">Follow Us</h4>
+            <ul class="social-media-list">
+              <li><a href="#"><i class="ti-facebook"></i></a></li>
+              <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+              <li><a href="#"><i class="ti-instagram"></i></a></li>
+              <li><a href="#"><i class="ti-skype"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End Blog Post Area =================-->
+</main>
+
+<footer>
+  <div class="footer-area">
+    <div class="container">
+      <div class="footer-content text-center">
+        <p>&copy; 2024 All Rights Reserved. Powered by <a href="#">Your
+          Company</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
