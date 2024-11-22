@@ -7,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sensive Blog - Home</title>
   <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-  <link rel="stylesheet"
-        href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
   <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
   <style>
     .hero-banner {
@@ -35,13 +34,12 @@
 {% for post in posts %}
 <article>
   <h2>{{ post.title }}</h2>
-  <p>{{ post.description }}</p>
-  <p><strong>Author:</strong> {{ post.author }}</p>
-  <p><strong>Date:</strong> {{ post.published_date }}</p>
+  <p>{{ post.description|truncatechars:200 }}</p>
   <a href="{{ post.url }}">Read more</a>
 </article>
 <hr>
 {% endfor %}
+
 <!--================Header Menu Area =================-->
 <header class="header_area">
   <div class="main_menu">
@@ -91,7 +89,6 @@
     </div>
   </section>
   <!--================Hero Banner end =================-->
-
   <!--================ Popular Posts Section =================-->
   <section class="popular-posts">
     <div class="container">
@@ -125,10 +122,11 @@
             <img src="{{ post.image_url }}" class="card-img-top" alt="{{ post.title }}">
             <div class="card-body">
               <h5 class="card-title">{{ post.title }}</h5>
-              <p class="card-text">{{ post.description }}</p>
+              <p class="card-text">{{ post.description|truncatechars:200 }}</p>
               <p><strong>Author:</strong> {{ post.author }}</p>
               <p><strong>Date:</strong> {{ post.published_date }}</p>
               <p><strong>Comments:</strong> {{ post.comments_count }}</p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-primary">READ MORE -></a>
             </div>
           </div>
         </div>
@@ -137,58 +135,7 @@
     </div>
   </section>
   <!--================ End Fresh Posts Section =================-->
-  <!--================ Blog slider start =================-->
-  <section>
-    <div class="container">
-      <div class="d-flex">
-        <div class="flex-fill" style="margin-right: 30px;">
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-              <img class="card-img rounded-0"
-                   src="{% static 'images/blog/blog-slider/blog-slide1.png' %}"
-                   alt>
-            </div>
-            <div class="blog__slide__content">
-              <h3><a href="#">New york fashion week's continued the
-                evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="flex-fill" style="margin-right: 30px;">
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-              <img class="card-img rounded-0"
-                   src="{% static 'images/blog/blog-slider/blog-slide2.png' %}"
-                   alt>
-            </div>
-            <div class="blog__slide__content">
-              <h3><a href="#">New york fashion week's continued the
-                evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex-fill">
-          <div class="card blog__slide text-center">
-            <div class="blog__slide__img">
-              <img class="card-img rounded-0"
-                   src="{% static 'images/blog/blog-slider/blog-slide3.png' %}"
-                   alt>
-            </div>
-            <div class="blog__slide__content">
-              <h3><a href="#">New york fashion week's continued the
-                evolution</a></h3>
-              <p>2 days ago</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================ Blog slider end =================-->
 </main>
 
 <footer>
