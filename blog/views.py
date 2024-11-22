@@ -12,16 +12,16 @@ from sensive_blog.settings import COMPANY_COORDINATES
 def serialize_post(post):
     return {
         'title': post.title,
-        'image_url': post.image.url if post.image else '',
-        'published_date': format(post.published_at, 'F j, Y, P'),
+        'description': post.text,  # Заменено на post.text
+        'image_url': post.image.url if post.image else '/static/images/banner/blog.png',
+        'published_date': format(post.published_at, 'F j, Y, g:i a'),
+        'author': post.author.username,
+        'comments_count': post.comment_set.count(),
         'url': post.get_absolute_url(),
     }
 
 
 def index(request):
-    """
-    Вьюхи не оптимизированы, потому что в последней задаче модуля Django ORM нужно их оптимизировать как раз на примере этого сайта.
-    """
     all_posts = Post.objects.prefetch_related('author')
     popular_posts = all_posts.annotate(likes_count=Count('likes')).order_by('-likes_count')[:3]
     fresh_posts = all_posts.order_by('-published_at')[:5]

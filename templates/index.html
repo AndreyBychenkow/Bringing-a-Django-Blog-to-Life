@@ -114,7 +114,29 @@
     </div>
   </section>
   <!--================ End Popular Posts Section =================-->
-
+  <!--================ Fresh Posts Section =================-->
+  <section class="fresh-posts">
+    <div class="container">
+      <h3>Fresh Posts</h3>
+      <div class="row">
+        {% for post in fresh_posts %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ post.image_url }}" class="card-img-top" alt="{{ post.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.description }}</p>
+              <p><strong>Author:</strong> {{ post.author }}</p>
+              <p><strong>Date:</strong> {{ post.published_date }}</p>
+              <p><strong>Comments:</strong> {{ post.comments_count }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--================ End Fresh Posts Section =================-->
   <!--================ Blog slider start =================-->
   <section>
     <div class="container">
