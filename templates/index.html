@@ -14,9 +14,34 @@
     .hero-banner {
       background-image: url("{% static 'images/banner/hero-banner.png' %}");
     }
+    .popular-posts {
+      margin-top: 20px;
+    }
+    .popular-posts h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .popular-posts ul {
+      list-style: none;
+      padding: 0;
+    }
+    .popular-posts li {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
+{% for post in posts %}
+<article>
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.description }}</p>
+  <p><strong>Author:</strong> {{ post.author }}</p>
+  <p><strong>Date:</strong> {{ post.published_date }}</p>
+  <a href="{{ post.url }}">Read more</a>
+</article>
+<hr>
+{% endfor %}
 <!--================Header Menu Area =================-->
 <header class="header_area">
   <div class="main_menu">
@@ -66,6 +91,29 @@
     </div>
   </section>
   <!--================Hero Banner end =================-->
+
+  <!--================ Popular Posts Section =================-->
+  <section class="popular-posts">
+    <div class="container">
+      <h3>Popular Posts</h3>
+      <div class="row">
+        {% for post in most_popular_posts %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ post.image_url }}" class="card-img-top"
+                 alt="{{ post.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.published_date }}</p>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--================ End Popular Posts Section =================-->
 
   <!--================ Blog slider start =================-->
   <section>
@@ -119,125 +167,6 @@
     </div>
   </section>
   <!--================ Blog slider end =================-->
-
-  <!--================ Start Blog Post Area =================-->
-  <section class="blog-post-area section-margin mt-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid"
-                   src="{% static 'images/blog/blog1.png' %}" alt>
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <h3>Woman claims husband wants to name baby girl after his
-                ex-lover sparking.</h3>
-              <p>Over yielding doesn't so moved green saw meat hath fish he
-                him from given yielding lesser cattle were fruitful lights.
-                Given let have, lesser their made him above gathered
-                dominion sixth. Creeping deep said can't called second. Air
-                created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid"
-                   src="{% static 'images/blog/blog2.png' %}" alt>
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <h3>Woman claims husband wants to name baby girl after his
-                ex-lover sparking.</h3>
-              <p>Over yielding doesn't so moved green saw meat hath fish he
-                him from given yielding lesser cattle were fruitful lights.
-                Given let have, lesser their made him above gathered
-                dominion sixth. Creeping deep said can't called second. Air
-                created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid"
-                   src="{% static 'images/blog/blog3.png' %}" alt>
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <h3>Tourist deaths in Costa Rica jeopardize safe destination
-                reputation all time.</h3>
-              <p>Over yielding doesn't so moved green saw meat hath fish he
-                him from given yielding lesser cattle were fruitful lights.
-                Given let have, lesser their made him above gathered
-                dominion sixth. Creeping deep said can't called second. Air
-                created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid"
-                   src="{% static 'images/blog/blog4.png' %}" alt>
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <h3>Animal welfare tourism destination in some of the world's
-                most endangered.</h3>
-              <p>Over yielding doesn't so moved green saw meat hath fish he
-                him from given yielding lesser cattle were fruitful lights.
-                Given let have, lesser their made him above gathered
-                dominion sixth. Creeping deep said can't called second. Air
-                created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="sidebar-widget">
-            <h4 class="title">Search Blog</h4>
-            <form action="#">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <button type="submit" class="btn btn-outline-secondary">Search</button>
-              </div>
-            </form>
-          </div>
-
-          <div class="sidebar-widget">
-            <h4 class="title">Follow Us</h4>
-            <ul class="social-media-list">
-              <li><a href="#"><i class="ti-facebook"></i></a></li>
-              <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li><a href="#"><i class="ti-instagram"></i></a></li>
-              <li><a href="#"><i class="ti-skype"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================ End Blog Post Area =================-->
 </main>
 
 <footer>
