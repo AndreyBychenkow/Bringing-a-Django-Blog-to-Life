@@ -11,7 +11,15 @@
   <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
   <style>
     .hero-banner {
-      background-image: url("{% static 'images/banner/hero-banner.png' %}");
+      background-image: url('{% static "images/banner/hero-banner.png" %}');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     }
   </style>
   {% block extra_css %}{% endblock %}
@@ -31,7 +39,7 @@
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav justify-content-center">
             <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-social">
             <li><a href="#"><i class="ti-facebook"></i></a></li>
