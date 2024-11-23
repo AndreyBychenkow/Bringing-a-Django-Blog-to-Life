@@ -21,8 +21,16 @@
       color: white;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     }
+
+    .nav-link {
+      color: gray !important;
+    }
+
+    .nav-link:hover {
+      color: darkgray !important;
+    }
   </style>
-  {% block extra_css %}{% endblock %}
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
 <!--================Header Menu Area =================-->
@@ -71,6 +79,6 @@
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-{% block extra_js %}{% endblock %}
+  {% block extra_js %}{% endblock %}
 </body>
 </html>
