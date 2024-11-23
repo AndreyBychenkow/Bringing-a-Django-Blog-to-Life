@@ -1,164 +1,110 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Blog Details</title>
-  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
-  <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
-  <style>
-    .hero-banner {
-      background-image: url("{% static 'images/banner/hero-banner.png' %}");
-    }
-    h2 {
-      font-size: 2.5rem;
-    }
-    .comment {
-      margin-bottom: 15px;
-    }
-    .comment-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .reply {
-      display: inline-block;
-      padding: 5px 15px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #fff;
-      background-color: #007bff;
-      border: 1px solid #0056b3;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    .reply:hover {
-      background-color: #0056b3;
-      border-color: #003d80;
-      color: #fff;
-    }
-    .like-comment {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  </style>
-</head>
-<body>
-<!--================Header Menu Area =================-->
-<header class="header_area">
-  <div class="main_menu">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container box_1620">
-        <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Sensive"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-          <ul class="nav navbar-nav menu_nav justify-content-center">
-            <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right navbar-social">
-            <li><a href="#"><i class="ti-facebook"></i></a></li>
-            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-            <li><a href="#"><i class="ti-instagram"></i></a></li>
-            <li><a href="#"><i class="ti-skype"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-<!--================Header Menu Area =================-->
 
-<main class="site-main">
-  <!--================ Hero Banner start =================-->
-  <section class="mb-30px">
-    <div class="container">
-      <div class="hero-banner">
-        <div class="hero-banner__content">
-          <h1>Blog Details</h1>
-          <h4>Home - Blog Details</h4>
-        </div>
+{% block title %}Blog Details{% endblock %}
+
+{% block extra_css %}
+<style>
+  h2 {
+    font-size: 2.5rem;
+  }
+  .comment {
+    margin-bottom: 15px;
+  }
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reply {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #0056b3;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  .reply:hover {
+    background-color: #0056b3;
+    border-color: #003d80;
+    color: #fff;
+  }
+  .like-comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!--================ Hero Banner start =================-->
+<section class="mb-30px">
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-banner__content">
+        <h1>Blog Details</h1>
+        <h4>Home - Blog Details</h4>
       </div>
     </div>
-  </section>
-  <!--================ Hero Banner end =================-->
+  </div>
+</section>
+<!--================ Hero Banner end =================-->
 
-  <section class="post-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <article>
-            <h2>{{ post.title }}</h2>
-            <p><strong>Author:</strong> {{ post.author }}</p>
-            <p><strong>Published on:</strong> {{ post.published_at|date:"F j, Y" }}</p>
-            {% if post.image_url %}
-            <img src="{{ post.image_url }}" alt="{{ post.title }}" class="img-fluid">
-            {% else %}
-            <img src="{% static 'images/banner/blog.png' %}" alt="Default Image" class="img-fluid">
-            {% endif %}
-            <div class="post-body">
-              <p>{{ post.text }}</p>
-            </div>
-            <div class="like-comment">
-              <p><strong>People like this:</strong> {{ post.likes_amount }} <i class="ti-heart" style="color: red;"></i></p>
-              <p><strong>Total Comments:</strong> {{ post.comments|length }} <i class="ti-comment" style="color: mediumspringgreen;"></i></p>
-            </div>
-          </article>
+<section class="post-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <article>
+          <h2>{{ post.title }}</h2>
+          <p><strong>Author:</strong> {{ post.author }}</p>
+          <p><strong>Published on:</strong> {{ post.published_at|date:"F j, Y" }}</p>
+          {% if post.image_url %}
+          <img src="{{ post.image_url }}" alt="{{ post.title }}" class="img-fluid">
+          {% else %}
+          <img src="{% static 'images/banner/blog.png' %}" alt="Default Image" class="img-fluid">
+          {% endif %}
+          <div class="post-body">
+            <p>{{ post.text }}</p>
+          </div>
+          <div class="like-comment">
+            <p><strong>People like this:</strong> {{ post.likes_amount }} <i class="ti-heart" style="color: red;"></i></p>
+            <p><strong>Total Comments:</strong> {{ post.comments|length }} <i class="ti-comment" style="color: mediumspringgreen;"></i></p>
+          </div>
+        </article>
 
-          <!--================ Comments Section =================-->
-          <div class="comments-section">
-            <h3>Comments ({{ post.comments|length }})</h3>
-            {% for comment in post.comments %}
-            <div class="comment">
-              <div class="comment-header">
-                <p><strong>{{ comment.author }}</strong> - {{ comment.published_at|date:"F j, Y" }}</p>
-                <a href="#" class="reply"><i class="ti-reply"></i> REPLY</a>
-              </div>
-              <p>{{ comment.text }}</p>
+        <!--================ Comments Section =================-->
+        <div class="comments-section">
+          <h3>Comments ({{ post.comments|length }})</h3>
+          {% for comment in post.comments %}
+          <div class="comment">
+            <div class="comment-header">
+              <p><strong>{{ comment.author }}</strong> - {{ comment.published_at|date:"F j, Y" }}</p>
             </div>
-            {% empty %}
-            <p>No comments yet.</p>
+            <p>{{ comment.text }}</p>
+          </div>
+          {% empty %}
+          <p>No comments yet.</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="sidebar">
+          <ul>
+            {% for popular_post in popular_posts %}
+            <li>
+              <a href="{{ popular_post.get_absolute_url }}">{{ popular_post.title }}</a>
+            </li>
             {% endfor %}
-          </div>
-          <!--================ Comments Section end =================-->
+          </ul>
         </div>
-        <div class="col-md-4">
-          <div class="sidebar">
-            <ul>
-              {% for popular_post in popular_posts %}
-              <li>
-                <a href="{{ popular_post.get_absolute_url }}">{{ popular_post.title }}</a>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="footer-area">
-    <div class="container">
-      <div class="footer-content text-center">
-        <p>&copy; 2024 All Rights Reserved. Powered by <a href="#">Your Company</a></p>
       </div>
     </div>
   </div>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-<script src="{% static 'js/main.js' %}"></script>
-</body>
-</html>
+</section>
+{% endblock %}

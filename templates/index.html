@@ -1,150 +1,97 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sensive Blog - Home</title>
-  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
-  <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
-  <style>
-    .hero-banner {
-      background-image: url("{% static 'images/banner/hero-banner.png' %}");
-    }
-    .popular-posts {
-      margin-top: 20px;
-    }
-    .popular-posts h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-    .popular-posts ul {
-      list-style: none;
-      padding: 0;
-    }
-    .popular-posts li {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-  </style>
-</head>
-<body>
-<!--================Header Menu Area =================-->
-<header class="header_area">
-  <div class="main_menu">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container box_1620">
-        <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Sensive"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-          <ul class="nav navbar-nav menu_nav justify-content-center">
-            <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right navbar-social">
-            <li><a href="#"><i class="ti-facebook"></i></a></li>
-            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-            <li><a href="#"><i class="ti-instagram"></i></a></li>
-            <li><a href="#"><i class="ti-skype"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-<!--================Header Menu Area =================-->
 
-<main class="site-main">
-  <!--================Hero Banner start =================-->
-  <section class="mb-30px">
-    <div class="container">
-      <div class="hero-banner">
-        <div class="hero-banner__content">
-          <h3>Tours &amp; Travels</h3>
-          <h1>Amazing Places on earth</h1>
-          <h4>December 12, 2018</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================Hero Banner end =================-->
+{% block title %}Sensive Blog - Home{% endblock %}
 
-  <!--================ Popular Posts Section =================-->
-  <section class="popular-posts">
-    <div class="container">
-      <h3>Popular Posts</h3>
-      <div class="row">
-        {% for post in most_popular_posts %}
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            {% if post.image %}
-            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
-            {% else %}
-            <img src="{% static 'images/default-post.jpg' %}" class="card-img-top" alt="Default Image">
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
-              </h5>
-              <p class="card-text">{{ post.published_date }}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
+{% block extra_css %}
+<style>
+  .popular-posts {
+    margin-top: 20px;
+  }
+  .popular-posts h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .popular-posts ul {
+    list-style: none;
+    padding: 0;
+  }
+  .popular-posts li {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+</style>
+{% endblock %}
 
-  <!--================ Fresh Posts Section =================-->
-  <section class="fresh-posts">
-    <div class="container">
-      <h3>Fresh Posts</h3>
-      <div class="row">
-        {% for post in fresh_posts %}
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            {% if post.image %}
-            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
-            {% else %}
-            <img src="{% static 'images/default-post.jpg' %}" class="card-img-top" alt="Default Image">
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
-              </h5>
-              <p class="card-text">{{ post.description|truncatechars:200 }}</p>
-              <p style="max-width: 550px;"><strong>Author:</strong> {{ post.author }}</p>
-              <p><strong>Date:</strong> {{ post.published_date }}</p>
-              <p><strong>Comments:</strong> {{ post.comments_count }}</p>
-              <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">READ MORE -></a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-  <!--================ End Fresh Posts Section =================-->
-</main>
-
-<footer>
-  <div class="footer-area">
-    <div class="container">
-      <div class="footer-content text-center">
-        <p>&copy; 2024 All Rights Reserved. Powered by <a href="#">Your Company</a></p>
+{% block content %}
+<!--================Hero Banner start =================-->
+<section class="mb-30px">
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-banner__content">
+        <h3>Tours &amp; Travels</h3>
+        <h1>Amazing Places on earth</h1>
+        <h4>December 12, 2018</h4>
       </div>
     </div>
   </div>
-</footer>
+</section>
+<!--================Hero Banner end =================-->
 
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-</body>
-</html>
+<!--================ Popular Posts Section =================-->
+<section class="popular-posts">
+  <div class="container">
+    <h3>Popular Posts</h3>
+    <div class="row">
+      {% for post in most_popular_posts %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          {% if post.image %}
+          <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+          {% else %}
+          <img src="{% static 'images/default-post.jpg' %}" class="card-img-top" alt="Default Image">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+            </h5>
+            <p class="card-text">{{ post.published_date }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!--================ Fresh Posts Section =================-->
+<section class="fresh-posts">
+  <div class="container">
+    <h3>Fresh Posts</h3>
+    <div class="row">
+      {% for post in fresh_posts %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          {% if post.image %}
+          <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+          {% else %}
+          <img src="{% static 'images/default-post.jpg' %}" class="card-img-top" alt="Default Image">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+            </h5>
+            <p class="card-text">{{ post.description|truncatechars:200 }}</p>
+            <p style="max-width: 550px;"><strong>Author:</strong> {{ post.author }}</p>
+            <p><strong>Date:</strong> {{ post.published_date }}</p>
+            <p><strong>Comments:</strong> {{ post.comments_count }}</p>
+            <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">READ MORE -></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
