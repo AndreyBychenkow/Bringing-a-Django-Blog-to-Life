@@ -13,6 +13,9 @@
     .hero-banner {
       background-image: url("{% static 'images/banner/hero-banner.png' %}");
     }
+    h2 {
+      font-size: 2.5rem;
+    }
   </style>
 </head>
 <body>
@@ -59,7 +62,6 @@
         <div class="hero-banner__content">
           <h1>Blog details</h1>
           <h4>Home - Blog Details</h4>
-          <h4>{{ post.published_date }}</h4>
         </div>
       </div>
     </div>
@@ -73,9 +75,16 @@
           <article>
             <h2>{{ post.title }}</h2>
             <p><strong>Author:</strong> {{ post.author }}</p>
+            <p><strong>Published on:</strong> {{ post.published_at|date:"F j, Y" }}</p>
+            {% if post.image_url %}
+            <img src="{{ post.image_url }}" alt="{{ post.title }}" class="img-fluid">
+            {% else %}
+            <img src="{% static 'images/banner/blog.png' %}" alt="Default Image" class="img-fluid">
+            {% endif %}
             <div class="post-body">
-              <p>{{ post.content }}</p>
+              <p>{{ post.text }}</p>
             </div>
+            <p><strong>People like this:</strong> {{ post.likes_amount }}</p>
           </article>
         </div>
         <div class="col-md-4">
@@ -104,7 +113,6 @@
     </div>
   </div>
 </footer>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
