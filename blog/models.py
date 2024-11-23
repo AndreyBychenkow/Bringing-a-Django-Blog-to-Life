@@ -7,8 +7,9 @@ class Post(models.Model):
     title = models.CharField("Заголовок", max_length=200)
     text = models.TextField("Текст")
     slug = models.SlugField("Название в виде url", max_length=200)
-    image = models.ImageField("Картинка")
+    image = models.ImageField(upload_to='blog_images/', null=True, blank=True)
     published_at = models.DateTimeField("Дата и время публикации")
+    is_popular = models.BooleanField(default=False)
 
     author = models.ForeignKey(
         User,

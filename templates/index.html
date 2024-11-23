@@ -31,35 +31,20 @@
   </style>
 </head>
 <body>
-{% for post in posts %}
-<article>
-  <h2>{{ post.title }}</h2>
-  <p>{{ post.description|truncatechars:200 }}</p>
-  <a href="{{ post.url }}">Read more</a>
-</article>
-<hr>
-{% endfor %}
-
 <!--================Header Menu Area =================-->
 <header class="header_area">
   <div class="main_menu">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container box_1620">
-        <a class="navbar-brand logo_h" href="index.html"><img
-          src="{% static 'images/logo.png' %}" alt></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+        <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Sensive"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="collapse navbar-collapse offset"
-             id="navbarSupportedContent">
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav justify-content-center">
-            <li class="nav-item active"><a class="nav-link"
-                                           href="index.html">Home</a></li>
+            <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-social">
@@ -89,6 +74,7 @@
     </div>
   </section>
   <!--================Hero Banner end =================-->
+
   <!--================ Popular Posts Section =================-->
   <section class="popular-posts">
     <div class="container">
@@ -97,12 +83,16 @@
         {% for post in most_popular_posts %}
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="{{ post.image_url }}" class="card-img-top"
-                 alt="{{ post.title }}">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+            {% else %}
+            <img src="{% static 'images/default-post.jpg' %}" class="card-img-top" alt="Default Image">
+            {% endif %}
             <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
+              <h5 class="card-title">
+                <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+              </h5>
               <p class="card-text">{{ post.published_date }}</p>
-
             </div>
           </div>
         </div>
@@ -110,7 +100,7 @@
       </div>
     </div>
   </section>
-  <!--================ End Popular Posts Section =================-->
+
   <!--================ Fresh Posts Section =================-->
   <section class="fresh-posts">
     <div class="container">
@@ -119,14 +109,20 @@
         {% for post in fresh_posts %}
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="{{ post.image_url }}" class="card-img-top" alt="{{ post.title }}">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+            {% else %}
+            <img src="{% static 'images/default-post.jpg' %}" class="card-img-top" alt="Default Image">
+            {% endif %}
             <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
+              <h5 class="card-title">
+                <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+              </h5>
               <p class="card-text">{{ post.description|truncatechars:200 }}</p>
               <p style="max-width: 550px;"><strong>Author:</strong> {{ post.author }}</p>
               <p><strong>Date:</strong> {{ post.published_date }}</p>
               <p><strong>Comments:</strong> {{ post.comments_count }}</p>
-              <a href="{{ post.get_absolute_url }}" class="btn btn-primary">READ MORE -></a>
+              <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">READ MORE -></a>
             </div>
           </div>
         </div>
@@ -135,15 +131,13 @@
     </div>
   </section>
   <!--================ End Fresh Posts Section =================-->
-
 </main>
 
 <footer>
   <div class="footer-area">
     <div class="container">
       <div class="footer-content text-center">
-        <p>&copy; 2024 All Rights Reserved. Powered by <a href="#">Your
-          Company</a></p>
+        <p>&copy; 2024 All Rights Reserved. Powered by <a href="#">Your Company</a></p>
       </div>
     </div>
   </div>
