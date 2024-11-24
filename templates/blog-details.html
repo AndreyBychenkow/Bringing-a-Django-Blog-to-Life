@@ -2,10 +2,20 @@
 
 {% load static %}
 
-{% block title %}Blog Details{% endblock %}
+{% block title %}{{ post.title }} - Blog Details{% endblock %}
 
 {% block extra_css %}
 <style>
+  .hero-banner {
+    background-image: url('{% static "images/banner/hero-banner.png" %}');
+  }
+  .nav-link {
+    color: gray !important;
+  }
+
+  .nav-link:hover {
+    color: darkgray !important;
+  }
   h2 {
     font-size: 2.5rem;
   }

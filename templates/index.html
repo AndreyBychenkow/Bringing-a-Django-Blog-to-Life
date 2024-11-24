@@ -6,6 +6,16 @@
 
 {% block extra_css %}
 <style>
+  .hero-banner {
+    background-image: url('{% static "images/banner/hero-banner.png" %}');
+  }
+  .nav-link {
+    color: gray !important;
+  }
+
+  .nav-link:hover {
+    color: darkgray !important;
+  }
   .popular-posts {
     margin-top: 20px;
   }
@@ -57,6 +67,8 @@
               <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
             </h5>
             <p class="card-text">{{ post.published_date }}</p>
+            <p style="max-width: 550px;"><strong>Author:</strong> {{ post.author }}</p>
+            <p><strong>Date:</strong> {{ post.published_at|date:"F j, Y" }}</p>
           </div>
         </div>
       </div>
@@ -84,8 +96,7 @@
             </h5>
             <p class="card-text">{{ post.description|truncatechars:200 }}</p>
             <p style="max-width: 550px;"><strong>Author:</strong> {{ post.author }}</p>
-            <p><strong>Date:</strong> {{ post.published_date }}</p>
-            <p><strong>Comments:</strong> {{ post.comments_count }}</p>
+            <p><strong>Date:</strong> {{ post.published_at|date:"F j, Y" }}</p>
             <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">READ MORE -></a>
           </div>
         </div>
