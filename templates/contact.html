@@ -1,47 +1,31 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% load static %}
-
-{% block title %}Sensive Blog - Contact Us{% endblock %}
-
-{% block extra_css %}
-<style>
-  .hero-banner {
-    background-image: url('{% static "images/banner/hero-banner.png" %}');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  }
-
-  .nav-link {
-    color: gray !important;
-  }
-
-  .nav-link:hover {
-    color: darkgray !important;
-  }
-</style>
-{% endblock %}
+{% block title %}Sensive Blog - Contact{% endblock %}
 
 {% block content %}
-<section class="hero-banner" style="position: relative; width: calc(100% - 415px); height: 400px; overflow: hidden; margin: 0 auto;">
-  <div class="hero-banner__content" style="background-image: url('{% static 'images/banner/hero-banner.png' %}'); background-size: cover; background-position: center; height: 100%; display: flex; justify-content: center; align-items: center; color: white; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">
-    <div class="hero-banner__overlay" style="text-align: center; padding: 20px; position: relative;">
-      <h1 style="color: white;">Contact Us</h1>
-      <h4 style="color: white;">Home - Contact Us</h4>
+<!--================ Hero sm banner start =================-->
+<section class="mb-30px">
+  <div class="container">
+    <div class="hero-banner hero-banner--sm">
+      <div class="hero-banner__content">
+        <h1>Contact Us</h1>
+        <nav aria-label="breadcrumb" class="banner-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+      </div>
     </div>
   </div>
 </section>
+<!--================ Hero sm banner end =================-->
 
+<!-- ================ contact section start ================= -->
 <section class="section-margin--small section-margin">
   <div class="container">
     <div class="d-none d-sm-block mb-5 pb-4">
-      {{ html_map|safe }}
+      {{html_map|safe}}
     </div>
 
     <div class="row">
@@ -50,7 +34,7 @@
           <span class="contact-info__icon"><i class="ti-home"></i></span>
           <div class="media-body">
             <h3>California United States</h3>
-            <p>Santa Monica Boulevard</p>
+            <p>Santa monica bullevard</p>
           </div>
         </div>
         <div class="media contact-info">
@@ -96,4 +80,5 @@
     </div>
   </div>
 </section>
+<!-- ================ contact section end ================= -->
 {% endblock %}
